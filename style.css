@@ -16,14 +16,25 @@ body {
   font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
   line-height: 1.7;
   color: #5a4a58;
-  background:
-    linear-gradient(rgba(255, 248, 252, 0.9), rgba(255, 248, 252, 0.9)),
-    url("images/むぁ_SD2024_背景無し.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: linear-gradient(
+    rgba(255, 248, 252, 0.9),
+    rgba(255, 248, 252, 0.9)
+  );
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image: url("images/random_bg_7chars_transparent.png");
+  background-repeat: repeat;
+  background-size: 500px;
+
+  opacity: 0.15;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -276,7 +287,7 @@ ul {
    Profile
 ------------------------------ */
 .profile {
-  background-color: #fffafb;
+  background-color: transparent;
 }
 
 .profile-list {
@@ -290,16 +301,17 @@ ul {
   display: grid;
   grid-template-columns: 180px 1fr;
   align-items: center;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.55);
   border: 1px solid #f4dbe8;
   border-radius: 18px;
   overflow: hidden;
+  backdrop-filter: blur(2px);
 }
 
 .profile-item dt {
   margin: 0;
   padding: 18px 20px;
-  background: #fdebf5;
+  background: rgba(253, 235, 245, 0.8);
   font-weight: 700;
   color: #b95b96;
 }
@@ -307,6 +319,7 @@ ul {
 .profile-item dd {
   margin: 0;
   padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.35);
 }
 
 /* ------------------------------
@@ -345,8 +358,10 @@ ul {
 /* ------------------------------
    Contact
 ------------------------------ */
-.contact {
-  background-color: #fffafb;
+.about,
+.contact,
+.profile {
+  background-color: transparent;
 }
 
 .contact a {
